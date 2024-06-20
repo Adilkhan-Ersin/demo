@@ -1,0 +1,391 @@
+/* general-setting-pages */
+:root {
+  --pr-color: #0a0a0a;
+  --second-color: #fff;
+  --cubicbz: cubic-bezier(.9, 0, 1, 1);
+  --fz-big: 60px;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  margin: 0;
+  padding: 0;
+  font-feature-settings: 'pnum' on, 'lnum' on;
+  cursor: none;
+}
+
+body {
+  background: var(--second-color);
+}
+
+section {
+  padding-top: 5.859vw;
+  padding-bottom: 1.953vw;
+}
+
+.wrapp {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.content {
+  width: 100%;
+  padding: 0 2.734vw;
+}
+
+.char {
+  display: inline-block;
+}
+
+/* Paralax Effect on gsap */
+.header {
+  position: relative;
+  display: flex;
+  padding: 0 2.734vw;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.header_marq {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.header_marq {
+  width: 100%;
+  height: auto;
+  background: #070707;
+  overflow: hidden;
+}
+
+.header_marq-wrapp {
+  display: flex;
+  width: 100%;
+  height: auto;
+  padding: 0.313vw 2.734vw;
+}
+
+.header_marq-txt {
+  position: relative;
+  flex: 0 0 auto;
+  display: inline-block;
+  padding-right: 2.148vw;
+  margin-right: 0.586vw;
+  text-transform: uppercase;
+  color: #e6e6e6;
+  font-size: 1.367vw;
+}
+
+.header_marq-star {
+  position: absolute;
+  width: 1.563vw;
+  height: 100%;
+  right: 0;
+}
+  
+.header_marq-star img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.title {
+  position: relative;
+  margin: 0;
+  font-size: 4.375vw;
+  text-align: center;
+  color: var(--pr-color);
+  text-transform: uppercase;
+  mix-blend-mode: difference;
+  z-index: 2;
+}
+
+.title_paralax {
+  display: inline-block;
+  will-change: transform;
+}
+
+.title .stroke {
+  display: inline-block;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--pr-color);
+}
+
+.section-title {
+  position: relative;
+  margin: 0;
+  margin-bottom: 2.344vw;
+  line-height: .8;
+  font-size: 2.734vw;
+  text-align: center;
+  color: var(--pr-color);
+  text-transform: uppercase;
+}
+
+.section-title .stroke {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--pr-color);
+}
+
+.section-title_square {
+  position: absolute;
+  display: inline-block;
+  width: 5vw;
+  height: 5vw;
+  border: 2px dashed #070707;
+  top: 50%;
+  Left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+/*.about */
+.about{
+  padding: 2.7vw;
+}
+
+.about {
+  text-align: left;
+}
+
+.about_wrapp {
+  display: flex;
+  justify-content: space-between;
+}
+
+.about_img, .about_txt {
+  width: calc(50% - 25px);
+  height: auto;
+}
+
+.about_txt {
+  padding-right: 2.7vw;
+}
+
+.about_p {
+  line-height: 1.4;
+  font-size: 0.9vw;
+  color: #535353;
+}
+
+.about_img {
+  height: 85vh;
+  overflow: hidden;
+}
+
+.about_img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+  /* benefits */
+.benefits_list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.56vw;
+  width: 100%;
+  height: auto;
+}
+
+.benefits_item {
+  list-style: none;
+  width: calc(33.33% - 27px);
+}
+  
+.benefits_num {
+  display: inline-block;
+  font-size: 2.35vw;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--pr-color);
+}
+
+.benefits_p {
+  font-size: 0.9vw;
+  color: #535353;
+}
+  
+  /* work */
+.work {
+  padding-top: 5.85vw;
+}
+
+.work_wrapp {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 3.5vw;
+  justify-content: space-between;
+  padding: 0 2.7vw;
+}
+  
+.work_item {
+  position: relative;
+  width: 45vw;
+  height: calc(100vh - 180px);
+}
+  
+.work_item-num {
+  position: absolute;
+  display: inline-block;
+  font-size: 3vw;
+  color: var(--second-color);
+  mix-blend-mode: difference;
+  z-index: 2;
+}
+
+.work_item-img {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.work_item-img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+  
+  /* serv */
+.serv_item {
+  position: relative;
+  padding: 1.56vw 0;
+  border-bottom: 2px dashed #070707;
+}
+
+.serv_item-arrow {
+  position: absolute;
+  display: inline-block;
+  width: 2.2vw;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+  
+.serv_item-arrow img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.serv_item-txt {
+  font-size: 2vw;
+  color: #222222;
+  text-transform: uppercase;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+  
+  /* footer */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content : center;
+  height: 100vh;
+}
+
+.footer_div {
+  font-size: 4.5vw;
+  letter-spacing: 0.6vw;
+  text-transform: uppercase;
+  color: var(--pr-color);
+}
+
+.footer_div span {
+  display: inline-block;
+}
+
+/* Custom cursor on GSAP v1 */
+.cursor,
+.follow {
+  position: fixed;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  transform: rotate(45deg);
+  z-index: 9999;
+}
+
+.cursor {
+  width: 10px;
+  height: 10px;
+  background: var(--second-color);
+  transition: transform .4s var(--cubicbz);
+}
+
+.follow {
+  width: 30px;
+  height: 30px;
+  border: 2px solid var(--second-color);
+  transition: border .4s var(--cubicbz);
+}
+
+.cursor.active{
+  transform: rotate(45deg) scale(0);
+}
+.follow.active{
+  border-color: transparent;
+}
+
+.follow_txt {
+  position: absolute;
+  width: 300%;
+  height: 300%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background: var(--second-color);
+  transition: opacity .4s var(--cubicbz), transform .4s var(--cubicbz);
+  transition-delay: .1s;
+}
+
+.follow.active .follow_txt {
+  transform: translate(-50%, -50%) scale(1);
+}
+  
+.follow_txt div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 0.875em;
+  color: var(--pr-color);
+  text-transform: uppercase;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+
+@media screen and (max-width: 1925px) {
+  
+}
+
+@media screen and (max-width: 1510px) {
+  
+}
+
+@media screen and (max-width: 1200px) {
+  
+}
+
+@media screen and (max-width: 825px) {
+  
+}
+
+@media screen and (max-width: 600px) {
+  
+}
+
+@media screen and (max-width: 440px) {
+  
+}
