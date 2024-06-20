@@ -99,6 +99,15 @@ document.addEventListener("DOMContentLoaded", function () {
         scrub: 1.9
       }
     })
+
+    gsap.from('.benefits_tit', {
+      x: (i, el) => (1 - parseFloat(el.getAttribute('data-speed'))),
+      scrollTrigger: {
+        trigger: '.benefits_list',
+        start: 'top bottom',
+        scrub: 1.9
+      }
+    })
   }
   benefits();
 
@@ -195,6 +204,15 @@ document.addEventListener("DOMContentLoaded", function () {
       follow.addClass("active");
     });
     $(".work_item-img").on("mouseleave", function(){
+      cursor.removeClass("active");
+      follow.removeClass("active");
+    });
+
+    $(".work_item-num").on("mouseenter", function(){
+      cursor.addClass("active");
+      follow.addClass("active");
+    });
+    $(".work_item-num").on("mouseleave", function(){
       cursor.removeClass("active");
       follow.removeClass("active");
     });
