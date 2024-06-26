@@ -25,8 +25,44 @@
 <body>
   <!--div .wrapp-->
   <div id="luxy" class="wrapp">
+    <!--Nav-bar-->
+    <nav>
+      <div class="info">
+        <img src="./img/icon.svg" alt="logo">
+      </div>
+      <div class="logo">
+        <p><a href="#header">The Portfolio</a></p>
+      </div>
+      <div class="toggle-btn">
+        <button class="burger" onclick="this.classList.toggle('active');"></button>
+      </div>
+    </nav>
+
+    <div class="overlay">
+      <div class="overlay-menu">
+        <div class="menu-item">
+          <p id="active"><a href="#about">About</a></p>
+        </div>
+        <div class="menu-item">
+          <p id="active"><a href="#benefits">Benefits</a></p>
+        </div>
+        <div class="menu-item">
+          <p id="active"><a href="#work">Work</a></p>
+        </div>
+      </div>
+
+      <div class="sub-nav">
+        <p><a href="#">Twitter</a></p>
+        <p>.</p>
+        <p><a href="#">Instagram</a></p>
+        <p>.</p>
+        <p><a href="#">Dribble</a></p>
+        <p>.</p>
+        <p><a href="#">Behance</a></p>
+      </div>
+    </div>
     <!--div .header-->
-    <header class="header">
+    <header class="header" id="header">
       <h1 class="title" data-splitting><span class="title_paralax">Ersin Adilkhan</span>
         <span class="stroke">Web Developer</span></h1>
       <div class="header_marq">
@@ -48,7 +84,7 @@
     <main class="main">
 
       <!--div .about-->
-      <section class="about">
+      <section class="about" id="about">
         <div class="about_wrapp">
           <div class="about_img">
             <img src="img/3.png" alt="2">
@@ -63,7 +99,7 @@
       </section>
 
       <!--div .benefits-->
-      <section class="benefits">
+      <section class="benefits" id="benefits">
         <div class="content">
           <h2 class="section-title">benef<span class="stroke">its</span>
             <span class="section-title_square"></span>
@@ -99,7 +135,7 @@
       </section>
 
       <!--div .work-->
-      <section class="work">
+      <section class="work" id="work">
         <div class="content">
           <h2 class="section-title">portfo<span class="stroke">lio</span>
             <span class="section-title_square"></span>
@@ -122,20 +158,20 @@
           <div class="work_item" data-speed="-400">
             <span class="work_item-num" data-speed="-275">/003</span>
               <div class="work_item-img">
-                <img src="img/Cinema-1.png" alt="5">
+                <img src="img/Lemon-Drink.png" alt="5">
               </div>
           </div>
           <div class="work_item" data-speed="-500">
             <span class="work_item-num" data-speed="-300">/004</span>
               <div class="work_item-img">
-                <img src="img/Cinema-2.png" alt="6">
+                <img src="img/Map2.png" alt="6">
               </div>
           </div>
         </div>
       </section>
 
       <!--div .serv-->
-      <section class="serv">
+      <section class="serv" id="services">
         <div class="content">
           <h2 class="section-title">servic<span class="stroke">es</span>
             <span class="section-title_square"></span>
@@ -181,6 +217,7 @@
 
     <!--div .footer-->
     <footer class="footer">
+      <img class="gradient" src="/img/gradient.jpg">
       <div class="footer_div">
         <span data-speed="-300">a</span>
         <span data-speed="100">d</span>
@@ -207,6 +244,7 @@
   <script src="js/splitting.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/gsap@3/dist/CSSRulePlugin.min.js"></script>
   <script src="js/luxy.js" charset="UTF-8"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </body>

@@ -1,14 +1,24 @@
 /* general-setting-pages */
+@font-face {
+  font-family: Gendy;
+  src: url(../font/Gendy.ttf);
+}
+
+@font-face {
+  font-family: Canopee;
+  src: url(../font/Canopee\ Regular.otf);
+}
+
 :root {
   --pr-color: #0a0a0a;
   --second-color: #fff;
   --cubicbz: cubic-bezier(.9, 0, 1, 1);
   --fz-big: 60px;
+  --p-size: 12px;
 }
 
 * {
   box-sizing: border-box;
-  font-family: 'Syne', sans-serif;
   font-weight: 800;
   margin: 0;
   padding: 0;
@@ -40,7 +50,157 @@ section {
 .char {
   display: inline-block;
 }
+/* Nav-bar */
+nav {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5em 2em;
+  color: var(--pr-color);
+  mix-blend-mode: difference;
+  z-index: 10;
+}
 
+nav > div {
+  flex: 1;
+}
+
+.info img{
+  height: 5em;
+}
+
+.logo {
+  text-align: center;
+  font-family: "Syne";
+}
+
+.logo a {
+  text-decoration: none;
+  font-size: 1.8em;
+}
+
+.toggle-btn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.burger {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.75em 2em 1.5em 2em;
+  background: rgba(255, 255, 255, 0);
+  outline: none;
+  border: none;
+  width: 28px;
+  height: 20px;
+  transition: all 250ms ease-out;
+}
+
+.burger:before,
+.burger:after {
+  content: "";
+  width: 40px;
+  height: 2px;
+  position: absolute;
+  transition: all 250ms ease-out;
+  will-change: transform;
+}
+
+.burger:before {
+  transform: translateY(-3px);
+  background: var(--pr-color);
+}
+  
+.burger:after {
+  transform: translateY(3px);
+  background: var(--pr-color);
+}
+  
+.active.burger:before {
+  transform: translateY(0) rotate(45deg);
+  background: var(--second-color);
+}
+
+.active.burger:after {
+  transform: translateY(0) rotate(-45deg);
+  background: var(--second-color);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background: var(--pr-color);
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  will-change: transform;
+  z-index: 9;
+}
+
+.overlay-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  gap: 1em;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-item {
+  display: flex;
+  cursor: pointer;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+  
+.menu-item p {
+  position: relative;
+  text-align: center;
+  font-family: "Canopee";
+  font-size: 15vw;
+  line-height: 80%;
+  will-change: transform;
+  transition: letter-spacing 0.3s;
+}
+
+.menu-item p:hover {
+  letter-spacing: 0.075em;
+}
+
+.menu-item p#active::after {
+  content: "";
+  position: absolute;
+  top: 45%;
+  left: 0;
+  transform: translateY(-50%);
+  background: #c03613;
+  width: 0%;
+  height: 12px;
+}
+
+.sub-nav {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5em;
+  opacity: 0;
+}
+
+.sub-nav p {
+  font-family: "Canopee";
+  font-size: 1.8em;
+  color: #cdc6be;
+}
 /* Paralax Effect on gsap */
 .header {
   position: relative;
@@ -50,6 +210,7 @@ section {
   align-items: center;
   width: 100%;
   height: 100vh;
+  font-family: 'Syne', sans-serif;
 }
 
 .header_marq {
@@ -153,6 +314,7 @@ section {
 
 .about {
   text-align: left;
+  font-family: 'Syne', sans-serif;
 }
 
 .about_wrapp {
@@ -188,7 +350,11 @@ section {
 }
 
   /* benefits */
-.benefits_list {
+.benefits {
+  font-family: 'Syne', sans-serif;
+}
+
+  .benefits_list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -224,6 +390,7 @@ section {
   /* work */
 .work {
   padding-top: 5.85vw;
+  font-family: 'Syne', sans-serif;
 }
 
 .work_wrapp {
@@ -263,6 +430,10 @@ section {
 }
   
   /* serv */
+.serv{
+  font-family: 'Syne', sans-serif;
+}
+
 .serv_item {
   position: relative;
   padding: 1.56vw 0;
@@ -302,13 +473,21 @@ a {
   align-items: center;
   justify-content : center;
   height: 100vh;
+  font-family: 'Syne', sans-serif;
+}
+
+.gradient {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
 }
 
 .footer_div {
   font-size: 4.5vw;
   letter-spacing: 0.6vw;
   text-transform: uppercase;
-  color: var(--pr-color);
+  color: var(--second-color);
+  mix-blend-mode: difference;
 }
 
 .footer_div span {
@@ -323,6 +502,7 @@ a {
   mix-blend-mode: difference;
   transform: rotate(45deg);
   z-index: 9999;
+  font-family: 'Syne', sans-serif;
 }
 
 .cursor {
@@ -372,11 +552,6 @@ a {
   transform: translate(-50%, -50%) rotate(-45deg);
 }
 
-
-@media screen and (max-width: 1925px) {
-  
-}
-
 @media screen and (max-width: 1510px) {
   
 }
@@ -394,5 +569,198 @@ a {
 }
 
 @media screen and (max-width: 440px) {
-  
+  /*all*/
+  section {
+    padding-top: 45px;
+    padding-bottom: 8px;
+  }
+  .content {
+    width: 100%;
+    padding: 0 10px;
+  }
+  /*Nav-bar*/
+  nav {
+    padding: 20px 13px;
+  }
+  .info img{
+    height: 40px;
+  }
+  .logo a {
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .burger {
+    padding: 15px 25px 15px 25px;
+    width: 14px;
+  }
+  .burger:before,
+  .burger:after {
+    width: 30px;
+    height: 2px;
+  }
+  .overlay-menu {
+    top: 0;
+    left: 0;
+    gap: 20px;
+  }
+  .menu-item p {
+    font-size: 115px;
+    line-height: 80%;
+  }
+  .menu-item p:hover {
+    letter-spacing: 8px;
+  }
+  .menu-item p#active::after {
+    height: 7px;
+  }
+  .sub-nav {
+    left: 50%;
+    gap: 5px;
+    bottom: 0;
+  }
+  .sub-nav p {
+    font-size: 20px;
+    color: #cdc6be;
+  }
+  /* Paralax Effect on gsap */
+  .header {
+    padding: 0 10px;
+  }
+  .header_marq-wrapp {
+    padding: 1.5px 10px;
+  }
+  .header_marq-txt {
+    padding-right: 15px;
+    margin: 3px;
+    font-size: 15px;
+  }
+  .header_marq-star {
+    width: 12px;
+  }
+  .title {
+    font-size: 25px;
+  }
+  .title .stroke {
+    -webkit-text-stroke: 1px var(--pr-color);
+  }
+  .section-title {
+    margin-bottom: 15px;
+    line-height: .8;
+    font-size: 18px;
+  }
+  .section-title .stroke {
+    -webkit-text-stroke: 1px var(--pr-color);
+  }
+  .section-title_square {
+    width: 30px;
+    height: 30px;
+    border: 1px dashed #070707;
+  }
+  /*.about */
+  .about{
+    padding: 10px;
+  }
+  .about {
+    text-align: left;
+    font-family: 'Syne', sans-serif;
+  }
+  .about_wrapp {
+    display: flex;
+    flex-direction: column;
+  }
+  .about_img, .about_txt {
+    width: 100%;
+    height: auto;
+  }
+  .about_txt {
+    padding-right: 0;
+    margin-bottom: 10px;
+  }
+  .about_p {
+    line-height: 1.4;
+    font-size: var(--p-size);
+    color: #535353;
+  }
+  .about_img {
+    height: auto;
+    overflow: hidden;
+    object-fit: cover;
+  }
+    /* benefits */
+  .benefits {
+    font-family: 'Syne', sans-serif;
+  }
+    .benefits_list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .benefits_item {
+    width: 100%;
+  }
+  .benefits_num {
+    font-size: 20px;
+    -webkit-text-stroke: 1px var(--pr-color);
+  }
+  .benefits_tit {
+    display: inline-block;
+    font-size: 16px;
+    padding-left: 8px;
+  }
+  .benefits_p {
+    font-size: var(--p-size);
+  }
+    /* work */
+  .work {
+    padding-top: 45px;
+  }
+  .work_wrapp {
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+  }
+  .work_item {
+    position: relative;
+    width: 100%;
+    height: calc(80vh - 300px);
+  }
+  .work_item-num {
+    font-size: 30px;
+  }
+    /* serv */
+  .serv_item {
+    padding: 10px 0;
+    border-bottom: 1px dashed #070707;
+  }
+  .serv_item-arrow {
+    width: 12px;
+    transform: translateY(-30%);
+  }
+  .serv_item-txt {
+    font-size: 16px;
+  }
+    /* footer */
+  .footer_div {
+    font-size: 20px;
+    letter-spacing: 3px;
+  }
+  /* Custom cursor on GSAP v1 */
+  .cursor {
+    width: 8px;
+    height: 8px;
+  }
+  .follow {
+    width: 26px;
+    height: 26px;
+    border: 1px solid var(--second-color);
+  }
+  .follow_txt {
+    width: 200%;
+    height: 200%;
+    top: 50%;
+    left: 50%;
+  }
+  .follow_txt div {
+    font-size: 10px;
+  }
 }
