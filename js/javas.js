@@ -57,17 +57,56 @@ document.addEventListener("DOMContentLoaded", function () {
       duration: 0.5,
       delay: 0.5
     }, "<");
-  
+    
+    const menuItems = document.querySelectorAll(".menu-item a");
+    menuItems.forEach(menuItem => {
+      menuItem.addEventListener("click", function(event) {
+        event.preventDefault(); // Prevent default anchor tag behavior
+
+        // Remove active class from previously active item
+        const previousActive = document.querySelector(".menu-item p#active");
+        if (previousActive) {
+          previousActive.removeAttribute("id");
+        }
+
+        // Add active class to the clicked item
+        this.parentElement.id = 'active';
+
+        // Optionally, close the menu after navigation
+        if (isOpen) {
+          timeline.reverse();
+          isOpen = false;
+          toggleButton.classList.remove('active'); // Ensure button returns to its original state
+        }
+      });
+    });
+
+    $('a[href^="#"]').click(function () {
+      let href = $(this).attr("href");
+      let target = $(href == "#" || href == "" ? "html" : href);
+      let position = target.offset().top;
+      $("html, body").animate({ scrollTop: position }, 300);
+      if (isOpen) {
+        timeline.reverse();
+        isOpen = false;
+        toggleButton.classList.remove('active'); // Ensure button returns to its original state
+      }
+      return false;
+    });
+
     toggleButton.addEventListener("click", function() {
       if (isOpen) {
         timeline.reverse();
+        toggleButton.classList.remove('active');
       } else {
         timeline.play();
+        toggleButton.classList.add('active');
       }
       isOpen = !isOpen;
-    })
+    });
   }
   navbar();
+
   //header
   function header() {
     gsap.to('.title_paralax', {
@@ -135,7 +174,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   about();
 
-
   //benefits
   function benefits() {
     gsap.from('.benefits_num', {
@@ -158,7 +196,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   benefits();
 
-
   //portfolio
   function portfolio() {
     gsap.from('.work_item, .work_item-num', {
@@ -180,7 +217,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   portfolio();
 
-
   //serv
   function serv() {
     gsap.from('.serv_item-arrow', {
@@ -193,7 +229,6 @@ document.addEventListener("DOMContentLoaded", function () {
     })
   }
   serv();
-
 
   //footer
   function footer() {
@@ -246,33 +281,54 @@ document.addEventListener("DOMContentLoaded", function () {
       mouseY = e.clientY;
     });
 
-    $(".work_item-img").on("mouseenter", function(){
+    $(".work_item-img, .work_item-num, .serv_item-txt, .burger, a").on("mouseenter", function(){
       cursor.addClass("active");
       follow.addClass("active");
     });
-    $(".work_item-img").on("mouseleave", function(){
-      cursor.removeClass("active");
-      follow.removeClass("active");
-    });
-
-    $(".work_item-num").on("mouseenter", function(){
-      cursor.addClass("active");
-      follow.addClass("active");
-    });
-    $(".work_item-num").on("mouseleave", function(){
-      cursor.removeClass("active");
-      follow.removeClass("active");
-    });
-    
-    $(".serv_item-txt").on("mouseenter", function(){
-      cursor.addClass("active");
-      follow.addClass("active");
-    });
-    $(".serv_item-txt").on("mouseleave", function(){
+    $(".work_item-img, .work_item-num, .serv_item-txt, .burger, a").on("mouseleave", function(){
       cursor.removeClass("active");
       follow.removeClass("active");
     });
 
   }
   cursor()
+  //Media responsive
+  let mm = gsap.matchMedia();
+  mm.add("(max-width: 500px)", () => {
+    //header
+    gsap.to('.header_marq-wrapp', {
+      scrollTrigger: {
+        trigger: '.header',
+        start: 'top top',
+        scrub: 1.9
+      },
+      xPercent: -180
+    })
+
+    //about
+    gsap.from('.about_img', {
+      scrollTrigger: {
+        trigger: '.about',
+        start: 'top bottom',
+        scrub: 1.9
+      },
+      yPercent: 60
+    })
+    gsap.from('.about_img img', {
+      scrollTrigger: {
+        trigger: '.about',
+        start: 'top bottom',
+        scrub: 1.9
+      },
+      scale: 1.5
+    })
+    gsap.to('.about_txt', {
+      scrollTrigger: {
+        trigger: '.about_wrapp',
+        start: 'top bottom',
+        scrub: 1.9
+      },
+      yPercent: 40
+    })
+  });
 })

@@ -10,8 +10,12 @@
 }
 
 :root {
-  --pr-color: #0a0a0a;
-  --second-color: #fff;
+  --pr-color: #141414;
+  --second-color: #FFFFFD;
+  --br-color: #B3D93B;
+  --bl-color: #FFBD41;
+  --matte-color: #FD7F52;
+  --pu-color: #6200BE;
   --cubicbz: cubic-bezier(.9, 0, 1, 1);
   --fz-big: 60px;
   --p-size: 12px;
@@ -58,27 +62,30 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 1.5em 2em;
-  color: var(--pr-color);
+  color: var(--second-color);
   mix-blend-mode: difference;
-  z-index: 10;
+  z-index: 100;
 }
 
 nav > div {
   flex: 1;
 }
 
-.info img{
-  height: 5em;
+.info {
+  text-align: center;
+  font-family: "Canopee";
+  font-size: 25px;
 }
 
 .logo {
   text-align: center;
-  font-family: "Syne";
+  font-family: "Canopee";
 }
 
 .logo a {
   text-decoration: none;
-  font-size: 1.8em;
+  font-size: 40px;
+  color: var(--second-color);
 }
 
 .toggle-btn {
@@ -105,28 +112,25 @@ nav > div {
   width: 40px;
   height: 2px;
   position: absolute;
+  background: var(--second-color);
   transition: all 250ms ease-out;
   will-change: transform;
 }
 
 .burger:before {
   transform: translateY(-3px);
-  background: var(--pr-color);
 }
   
 .burger:after {
   transform: translateY(3px);
-  background: var(--pr-color);
 }
   
 .active.burger:before {
   transform: translateY(0) rotate(45deg);
-  background: var(--second-color);
 }
 
 .active.burger:after {
   transform: translateY(0) rotate(-45deg);
-  background: var(--second-color);
 }
 
 .overlay {
@@ -136,7 +140,7 @@ nav > div {
   width: 100vw;
   height: 100vh;
   display: flex;
-  background: var(--pr-color);
+  background: var(--matte-color);
   clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
   will-change: transform;
   z-index: 9;
@@ -157,7 +161,6 @@ nav > div {
 
 .menu-item {
   display: flex;
-  cursor: pointer;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
   
@@ -165,10 +168,11 @@ nav > div {
   position: relative;
   text-align: center;
   font-family: "Canopee";
-  font-size: 15vw;
+  font-size: 260px;
   line-height: 80%;
   will-change: transform;
   transition: letter-spacing 0.3s;
+  color: var(--second-color);
 }
 
 .menu-item p:hover {
@@ -184,6 +188,7 @@ nav > div {
   background: #c03613;
   width: 0%;
   height: 12px;
+  transition: width 250ms ease-out;
 }
 
 .sub-nav {
@@ -198,8 +203,8 @@ nav > div {
 
 .sub-nav p {
   font-family: "Canopee";
-  font-size: 1.8em;
-  color: #cdc6be;
+  font-size: 30px;
+  color: var(--second-color);
 }
 /* Paralax Effect on gsap */
 .header {
@@ -222,7 +227,7 @@ nav > div {
 .header_marq {
   width: 100%;
   height: auto;
-  background: #070707;
+  background: var(--pr-color);
   overflow: hidden;
 }
 
@@ -240,7 +245,7 @@ nav > div {
   padding-right: 2.148vw;
   margin-right: 0.586vw;
   text-transform: uppercase;
-  color: #e6e6e6;
+  color: var(--second-color);
   font-size: 1.367vw;
 }
 
@@ -262,7 +267,7 @@ nav > div {
   margin: 0;
   font-size: 4.375vw;
   text-align: center;
-  color: var(--pr-color);
+  color: var(--br-color);
   text-transform: uppercase;
   mix-blend-mode: difference;
   z-index: 2;
@@ -276,7 +281,7 @@ nav > div {
 .title .stroke {
   display: inline-block;
   color: transparent;
-  -webkit-text-stroke: 2px var(--pr-color);
+  -webkit-text-stroke: 2px var(--bl-color);
 }
 
 .section-title {
@@ -286,13 +291,13 @@ nav > div {
   line-height: .8;
   font-size: 2.734vw;
   text-align: center;
-  color: var(--pr-color);
+  color: var(--br-color);
   text-transform: uppercase;
 }
 
 .section-title .stroke {
   color: transparent;
-  -webkit-text-stroke: 2px var(--pr-color);
+  -webkit-text-stroke: 2px var(--bl-color);
 }
 
 .section-title_square {
@@ -300,7 +305,7 @@ nav > div {
   display: inline-block;
   width: 5vw;
   height: 5vw;
-  border: 2px dashed #070707;
+  border: 2px dashed var(--pu-color);
   top: 50%;
   Left: 50%;
   transform: translate(-50%, -50%);
@@ -334,12 +339,13 @@ nav > div {
 .about_p {
   line-height: 1.4;
   font-size: 1.2vw;
-  color: #535353;
+  color: var(--pr-color);
 }
 
 .about_img {
   height: 85vh;
   overflow: hidden;
+  border-radius: 30px;
 }
 
 .about_img img {
@@ -372,19 +378,19 @@ nav > div {
   display: inline-block;
   font-size: 1.75vw;
   color: transparent;
-  -webkit-text-stroke: 1px var(--pr-color);
+  -webkit-text-stroke: 1px var(--bl-color);
 }
 
 .benefits_tit {
   display: inline-block;
   font-size: 1.35vw;
-  color: var(--pr-color);
+  color: var(--br-color);
   padding-left: 0.7vw;
 }
 
 .benefits_p {
   font-size: 0.9vw;
-  color: #535353;
+  color: var(--pr-color);
 }
   
   /* work */
@@ -420,6 +426,7 @@ nav > div {
   width: 100%;
   height: 100%;
   overflow: hidden;
+  border-radius: 30px;
 }
 
 .work_item-img img {
@@ -437,7 +444,7 @@ nav > div {
 .serv_item {
   position: relative;
   padding: 1.56vw 0;
-  border-bottom: 2px dashed #070707;
+  border-bottom: 2px dashed var(--pu-color);
 }
 
 .serv_item-arrow {
@@ -458,7 +465,6 @@ nav > div {
 
 .serv_item-txt {
   font-size: 2vw;
-  color: #222222;
   text-transform: uppercase;
 }
 
@@ -565,10 +571,6 @@ a {
 }
 
 @media screen and (max-width: 600px) {
-  
-}
-
-@media screen and (max-width: 440px) {
   /*all*/
   section {
     padding-top: 45px;

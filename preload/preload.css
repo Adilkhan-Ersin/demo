@@ -15,16 +15,11 @@
   font-family: "Gerhaus", sans-serif;
   font-weight: 800;
   font-feature-settings: 'pnum' on, 'lnum' on;
-  cursor: none;
 }
 
 html,
 body {
   background: #a0a0a0;
-}
-
-a {
-  text-decoration: none;
 }
 
 .header {
@@ -116,13 +111,12 @@ a {
   position: fixed;
   width: 100vw;
   height: 100vh;
-  z-index: 1000;
   display: flex;
 }
 
 .bar {
   width: 5vw;
-  height: 105vh;
+  height: 103vh;
   background: #1a1a1a;
 }
 
@@ -133,65 +127,9 @@ a {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
-  z-index: 9900;
+  z-index: 990;
   color: #bcbcc4;
   padding: 0.2em 0.4em;
   font-size: 20vw;
   font-family: "Gerhaus";
-}
-
-.cursor,
-.follow {
-  position: fixed;
-  pointer-events: none;
-  mix-blend-mode: difference;
-  transform: rotate(45deg);
-  z-index: 9999;
-}
-
-.cursor {
-  width: 10px;
-  height: 10px;
-  background: #171717;
-  transition: transform .4s var(--cubicbz);
-}
-
-.follow {
-  width: 30px;
-  height: 30px;
-  border: 2px solid #f72585;
-  transition: border .4s var(--cubicbz);
-}
-
-.cursor.active{
-  transform: rotate(45deg) scale(0);
-}
-.follow.active{
-  border-color: transparent;
-}
-
-.follow_txt {
-  position: absolute;
-  width: 300%;
-  height: 300%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  background: #171717;
-  transition: opacity .4s var(--cubicbz), transform .4s var(--cubicbz);
-  transition-delay: .1s;
-}
-
-.follow.active .follow_txt {
-  transform: translate(-50%, -50%) scale(1);
-}
-  
-.follow_txt div {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  font-size: 0.875rem;
-  color: #0a0a0a;
-  text-transform: uppercase;
-  transform: translate(-50%, -50%) rotate(-45deg);
 }
