@@ -20,7 +20,11 @@ document.addEventListener("DOMContentLoaded", function () {
       scrub: 1.9
     });
   });
-  
+  //reload on top
+  window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+  };
+
   //Nav-bar
   function navbar() {
     let activeItemIndicator = CSSRulePlugin.getRule(".menu-item p#active::after");
@@ -147,14 +151,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //about
   function about() {
-    gsap.from('.about_img', {
-      scrollTrigger: {
-        trigger: '.about',
-        start: 'top bottom',
-        scrub: 1.9
-      },
-      yPercent: 60
-    })
     gsap.from('.about_img img', {
       scrollTrigger: {
         trigger: '.about',
@@ -174,61 +170,53 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   about();
 
-  //benefits
-  function benefits() {
-    gsap.from('.benefits_num', {
-      x: (i, el) => (1 - parseFloat(el.getAttribute('data-speed'))),
-      scrollTrigger: {
-        trigger: '.benefits_list',
-        start: 'top bottom',
-        scrub: 1.9
-      }
-    })
+  // //benefits
+  // function benefits() {
+  //   gsap.from('.benefits_num', {
+  //     x: (i, el) => (1 - parseFloat(el.getAttribute('data-speed'))),
+  //     scrollTrigger: {
+  //       trigger: '.benefits_list',
+  //       start: 'top bottom',
+  //       scrub: 1.9
+  //     }
+  //   })
 
-    gsap.from('.benefits_tit', {
-      x: (i, el) => (1 - parseFloat(el.getAttribute('data-speed'))),
-      scrollTrigger: {
-        trigger: '.benefits_list',
-        start: 'top bottom',
-        scrub: 1.9
-      }
-    })
-  }
-  benefits();
+  //   gsap.from('.benefits_tit', {
+  //     x: (i, el) => (1 - parseFloat(el.getAttribute('data-speed'))),
+  //     scrollTrigger: {
+  //       trigger: '.benefits_list',
+  //       start: 'top bottom',
+  //       scrub: 1.9
+  //     }
+  //   })
+  // }
+  // benefits();
 
   //portfolio
   function portfolio() {
-    gsap.from('.work_item, .work_item-num', {
-      y: (i, el) => (1 - parseFloat(el.getAttribute('data-speed'))),
+    gsap.from('.work_item-num', {
       scrollTrigger: {
         trigger: '.work',
         start: 'top bottom',
         scrub: 1.9
-      }
-    })
-    gsap.from('.work_item-img img', {
-      scale: 1.5,
-      scrolLTrigger: {
-        trigger: '.work_wrapp',
-        start: 'top bottom',
-        scrub: 1.9
-      }
+      },
+      yPercent: 100
     })
   }
   portfolio();
 
   //serv
-  function serv() {
-    gsap.from('.serv_item-arrow', {
-      x: (i, el) => (1 - parseFloat(el.getAttribute('data-speed'))),
-      scrollTrigger: {
-        trigger: '.serv_list',
-        start: 'top bottom',
-        scrub: 1.9
-      }
-    })
-  }
-  serv();
+  // function serv() {
+  //   gsap.from('.serv_item-arrow', {
+  //     x: (i, el) => (1 - parseFloat(el.getAttribute('data-speed'))),
+  //     scrollTrigger: {
+  //       trigger: '.serv_list',
+  //       start: 'top bottom',
+  //       scrub: 1.9
+  //     }
+  //   })
+  // }
+  // serv();
 
   //footer
   function footer() {
@@ -291,10 +279,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
   }
-  cursor()
+  cursor();
   //Media responsive
   let mm = gsap.matchMedia();
-  mm.add("(max-width: 500px)", () => {
+  mm.add("(max-width: 700px)", () => {
     //header
     gsap.to('.header_marq-wrapp', {
       scrollTrigger: {

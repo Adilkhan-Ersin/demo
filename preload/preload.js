@@ -38,7 +38,7 @@ gsap.to(".bar", 1.5, {
   ease: "power4.inOut",
 });
 
-gsap.from(".title", 1.5, {
+gsap.from(".h1", 1.5, {
   delay: 4,
   y: 700,
   stagger: {
@@ -47,7 +47,7 @@ gsap.from(".title", 1.5, {
   ease: "power4.inOut",
 });
 
-gsap.from(".header_marq", 2, {
+gsap.from(".hero", 2, {
   delay: 4.5,
   y: 400,
   ease: "power4.inOut",
