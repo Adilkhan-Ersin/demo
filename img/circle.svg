@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="a" 
+xmlns="http://www.w3.org/2000/svg" 
+viewBox="0 0 133.14 133.14">
+<path d="M38.95,12.44c-14.64,0-26.51,11.87-26.51,26.51v5.21l31.71-31.72h-5.2Z" 
+style="fill:none; stroke:currentcolor; stroke-miterlimit:10; stroke-width:2px;"/>
+<path d="M94.2,120.7c14.63,0,26.5-11.87,26.5-26.51v-5.2l-31.7,31.71h5.2Z" 
+style="fill:none; stroke:currentcolor; stroke-miterlimit:10; stroke-width:2px;"/>
+<path d="M12.44,94.19c0,14.64,11.87,26.51,26.51,26.51h5.2l-31.71-31.72v5.21Z" 
+style="fill:none; stroke:currentcolor; stroke-miterlimit:10; stroke-width:2px;"/>
+<path d="M120.7,38.95c0-14.64-11.87-26.51-26.5-26.51h-5.2l31.7,31.71v-5.2Z" 
+style="fill:none; stroke:currentcolor; stroke-miterlimit:10; stroke-width:2px;"/>
+<path d="M47.83,124.38c10.35,10.35,27.13,10.35,37.49,0l3.68-3.68h-44.85l3.68,3.68Z" 
+style="fill:none; stroke:currentcolor; stroke-miterlimit:10; stroke-width:2px;"/>
+<path d="M85.32,8.76c-10.36-10.35-27.14-10.35-37.49,0l-3.68,3.68h44.85l-3.68-3.68Z" 
+style="fill:none; stroke:currentcolor; stroke-miterlimit:10; stroke-width:2px;"/>
+<path d="M124.38,47.83l-3.68-3.68v44.84l3.68-3.68c10.35-10.35,10.35-27.13,0-37.48Z" 
+style="fill:none; stroke:currentcolor; stroke-miterlimit:10; stroke-width:2px;"/>
+<path d="M8.77,47.83c-10.36,10.35-10.36,27.13,0,37.48l3.67,3.67v-44.82l-3.67,3.67Z" 
+style="fill:none; stroke:currentcolor; stroke-miterlimit:10; stroke-width:2px;"/>
+</svg>

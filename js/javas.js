@@ -220,6 +220,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //footer
   function footer() {
+    const fancy = document.querySelector('.fancy');
+    const footlers = document.querySelectorAll('.footler');
     gsap.from('.footer_div span', {
       y: (i, el) => (1 - parseFloat(el.getAttribute('data-speed'))),
       opacity: 0,
@@ -229,7 +231,25 @@ document.addEventListener("DOMContentLoaded", function () {
         end: 'bottom bottom',
         scrub: 1.9
       }
+    });
+
+    fancy.addEventListener('mouseenter', () => {
+      gsap.to(footlers[0], { x: '-80%', y: '60%', rotation: 8, duration: 0.8 });
+      gsap.to(footlers[1], { x: '-40%', y: '10%', rotation: 3, duration: 0.8 });
+      gsap.to(footlers[2], { x: '50%', y: '-60%', rotation: 5, duration: 0.8 });
+      gsap.to(footlers[3], { x: '90%', y: '90%', rotation: 10, duration: 0.8 });
+      gsap.to(footlers[4], { x: '-10%', y: '-20%', rotation: 1, duration: 0.8 });
+      gsap.to(footlers[5], { x: '35%', y: '-45%', rotation: 12, duration: 0.8 });
+      gsap.to(footlers[6], { x: '-80%', y: '60%', rotation: 2, duration: 0.8 });
+      gsap.to(footlers[7], { x: '69%', y: '69%', rotation: 6, duration: 0.8 });
+      gsap.to(footlers[8], { x: '30%', y: '-90%', rotation: 9, duration: 0.8 });
+      gsap.to(footlers[9], { x: '-75%', y: '70%', rotation: 4, duration: 0.8 });
+      gsap.to(footlers[10], { x: '58%', y: '-56%', rotation: 11, duration: 0.8 });
     })
+
+    fancy.addEventListener('mouseleave', () => {
+      gsap.to(footlers, { x: '0%', y: '0%', rotation: 0, duration: 0.8 });
+    });
   }
   footer();
 
@@ -242,26 +262,19 @@ document.addEventListener("DOMContentLoaded", function () {
       mouseX = 0,
       mouseY = 0;
 
-    gsap.to({}, 0.016, {
-      repeat: -1,
+    gsap.ticker.add(() => {
+      posX += (mouseX - posX) / 7;
+      posY += (mouseY - posY) / 7;
 
-      onRepeat: function(){
-        posX += (mouseX - posX) / 7;
-        posY += (mouseY - posY) / 7;
+      gsap.set(cursor, {
+        left: mouseX - 5,
+        top: mouseY - 5
+      });
 
-        gsap.set(cursor, {
-          css: {
-            left: mouseX -5,
-            top: mouseY -5
-          }
-        })
-        gsap.set(follow, {
-          css: {
-            left: posX -15,
-            top: posY -15
-          }
-        })
-      }
+      gsap.set(follow, {
+        left: posX - 15,
+        top: posY - 15
+      });
     });
 
     $(window).on('mousemove', function(e){
@@ -282,7 +295,20 @@ document.addEventListener("DOMContentLoaded", function () {
   cursor();
   //Media responsive
   let mm = gsap.matchMedia();
-  mm.add("(max-width: 700px)", () => {
+  mm.add("(max-width: 600px)", () => {
+    //nav-bar click
+    $('a[href^="#"]').click(function () {
+      let href = $(this).attr("href");
+      let target = $(href == "#" || href == "" ? "html" : href);
+      let position = target.offset().top;
+      $("html, body").animate({ scrollTop: position }, 100);
+      if (isOpen) {
+        timeline.reverse();
+        isOpen = false;
+        toggleButton.classList.remove('active'); // Ensure button returns to its original state
+      }
+      return false;
+    })
     //header
     gsap.to('.header_marq-wrapp', {
       scrollTrigger: {
@@ -294,29 +320,44 @@ document.addEventListener("DOMContentLoaded", function () {
     })
 
     //about
-    gsap.from('.about_img', {
-      scrollTrigger: {
-        trigger: '.about',
-        start: 'top bottom',
-        scrub: 1.9
-      },
-      yPercent: 60
-    })
     gsap.from('.about_img img', {
       scrollTrigger: {
         trigger: '.about',
-        start: 'top bottom',
+        start: 'bottom top',
         scrub: 1.9
       },
-      scale: 1.5
+      scale: 2
     })
-    gsap.to('.about_txt', {
+
+    //benefits
+    // const gTl = gsap.timeline();
+    // gTl.from(".benefits_num .char ",1, { opacity: 0, yPercent: 130, stagger: 0.06, ease: "back.out" });
+    // gTl.from(".benefits_tit", 2, { opacity: 0, yPercent: 100, ease: "expo.out" }, "-=1.5");
+
+    // gsap.from('.benefits_num', {
+    //   scrollTrigger: {
+    //     trigger: '.benefits_list',
+    //     start: 'top bottom',
+    //     scrub: 1.9
+    //   },
+    //   xPercent: -40
+    // })
+    // gsap.from('.benefits_tit', {
+    //   scrollTrigger: {
+    //     trigger: '.benefits_list',
+    //     start: 'top bottom',
+    //     scrub: 1.9
+    //   },
+    //   xPercent: -40
+    // })
+    // work
+    gsap.from('.work_item-num', {
       scrollTrigger: {
-        trigger: '.about_wrapp',
+        trigger: '.work',
         start: 'top bottom',
         scrub: 1.9
       },
-      yPercent: 40
+      yPercent: 300
     })
   });
 })
